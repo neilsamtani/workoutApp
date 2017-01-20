@@ -1,0 +1,71 @@
+<h3>New Workout</h3>
+
+<form name='newWorkoutForm'>
+   
+
+    <h4>Workout date:</h4>
+    <div style="display:inline-block; min-height:290px;">
+      <div uib-datepicker ng-model="workoutAdder.newWorkout.workoutDate" id="workoutDate" class="well well-sm" datepicker-options="options"></div>
+    </div>
+
+    <hr />
+    
+
+<!-- Date of workout: 
+    <input type="date" class="form-control" id='workoutDate' ng-model='workoutAdder.newWorkout.workoutDate' /> <br/> -->
+Exercise: 
+    <input type="text" class="form-control" id='workoutExercise' ng-model='workoutAdder.newWorkout.workoutExercise' /> <br/>
+Notes:    
+    <input type="textbox" class="form-control" id='notes' ng-model='workoutAdder.newWorkout.notes' /> <br/>
+
+Difficulty: 
+    <!-- <input type="textbox" class="form-control" id='difficulty' ng-model='workoutAdder.newWorkout.difficulty' /> <br/> -->
+<div ng-controller="RatingDemoCtrl">
+    <span uib-rating ng-model="workoutAdder.newWorkout.rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" 
+          titles="['one','two','three']" aria-labelledby="default-rating">
+        
+    </span>
+    </div>
+    
+    <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">
+        {{percent}}%
+    </span>
+    <br/>    
+
+
+Body Parts Trained:<br/>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.legs" uib-btn-checkbox>Legs</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.chest" uib-btn-checkbox>Chest</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.arms" uib-btn-checkbox>Arms</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.back" uib-btn-checkbox>Back</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.abs" uib-btn-checkbox>Abs</label>        
+    </div>
+
+<br/>
+
+<br/>
+Duration:<br/>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.duration" uib-btn-radio="'20'" uib-btn-checkbox>20 mins</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.duration" uib-btn-radio="'40'" uib-btn-checkbox>40 mins</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.duration" uib-btn-radio="'60'" uib-btn-checkbox>60 mins</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.duration" uib-btn-radio="'90'" uib-btn-checkbox>90 mins</label>
+        <label class="btn btn-primary" ng-model="workoutAdder.newWorkout.duration" uib-btn-radio="'120'" uib-btn-checkbox>120 mins</label>        
+    </div>
+
+<br/>
+<br/>    
+Exercise type:
+
+<br/>
+
+    <div class="btn-group">
+        <label class="btn btn-success" ng-model="workoutAdder.newWorkout.workoutType" uib-btn-radio="'cardio'" uncheckable>Cardio</label>
+        <label class="btn btn-success" ng-model="workoutAdder.newWorkout.workoutType" uib-btn-radio="'weights'" uncheckable>Weights</label>
+    </div>
+<br/>
+    <br/>
+    <button ng-click='workoutAdder.saveWorkout()' class="btn btn-default">Save</button>
+
+</form>

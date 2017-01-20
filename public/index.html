@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="css/workoutCustom.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/workoutCustom.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        
+    
+
+
+</head>
+<body ng-app="app">
+    
+<!-- this is the FB init code -->
+    
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '401283536889240',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+        
+<div id="fb-root"></div>
+   
+
+<!-- header -->
+    <div ng-show="menu.authService.User" ng-controller="MenuController as menu">
+        <div ng-show="!menu.loadHeader">   
+        LOADING... (it's worth the wait!)
+        </div>
+        
+        <div ng-show="menu.loadHeader">   
+            <div class="jumbotron text-center">
+            <h1>{{ menu.constants.APP_TITLE }}!</h1> 
+                <div ng-show="menu.workoutCount>0">
+                     <h2> Congrats, {{menu.authService.User}}! You have got through {{ menu.workoutCount }} workouts this year, only {{ menu.workoutsRemaining }} left!</h2> 
+                    <h3>{{ menu.badge }}!</h3>    
+                </div>
+                <div ng-hide="menu.workoutCount>0">
+            <h2> Congrats, {{menu.authService.User}} on joining WorkoutTracker! Just click on 'Add Workout' below to get started!!</h2> 
+                </div>                
+                </br>
+            
+            </div>
+            <nav class="navbar navbar-default">
+               <div class="navbar-header">
+                                <a href="#/" >Home</a>        
+                                <a href="#/addWorkout">Add Workout</a> 
+                                <a href="#/addMeasurement">Add Measurement</a> 
+                   <div><button class="" ng-click="menu.logoutUser()">Logout</button></div>
+
+
+                </div>
+            </nav>
+            </div>
+    </div>
+
+<div id='main'>
+<ng-view></ng-view>
+</div>    
+
+
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.4.0.js"></script>
+    <script src="app/config/fbInit.js"></script>
+
+
+    
+<script src="app/app.js"></script>
+<script src="app/workout/WorkoutController.js"></script>
+<script src="app/workout/AddWorkoutController.js"></script>
+<script src="app/workout/AddMeasurementController.js"></script>
+<script src="app/workout/AuthController.js"></script>
+    <script src="app/workout/MenuController.js"></script>
+
+<script src="app/directives/workoutDifficulty.js"></script>
+    
+    
+<script src="app/services/dataService.js"></script>
+<script src="app/services/loggerService.js"></script>
+<script src="app/services/constantService.js"></script>
+<script src="app/services/badgeService.js"></script>
+<script src="app/services/switchView.js"></script>
+<script src="app/services/authenticate_lite.js"></script>
+<script src="app/services/constantService.js"></script>
+<script src="app/services/headerService.js"></script>    
+<script src="lib/moment.js"></script>    
+<script src="lib/angularjs-social-login.js"></script>    
+    
+    
+</body>
+</html>

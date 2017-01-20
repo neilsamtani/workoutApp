@@ -1,0 +1,56 @@
+<div>
+    
+    <div class="navbar" ng-cloak>
+
+        <div class="navbar-inner">     
+                        
+            <div ng-hide='workouts.measurementView'>
+                
+                <div ng-show='workouts.workoutDataNotPrepared'>
+                    Loading... (it's worth the wait!)
+                </div>
+                <div ng-hide='workouts.workoutDataNotPrepared'>
+                    {{workouts.workoutDataNotPrepared}}
+                    
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Date</th>
+                    <th>Exercise</th>
+                    <th>Difficulty</th>
+                    </tr>    
+                    </thead>
+                    <tbody>
+                <tr ng-repeat="workout in workouts.workoutCalendar">
+                    <td>{{ workout.workoutDate | date:short }} </td>
+                    <td>{{ workout.workoutExercise }}</td>
+                    <td><uib-rating ng-model="workout.rate" max="10" readonly="isReadonly" ></uib-rating></td>
+                </tr>    
+                </tbody>        
+                    
+                </table>    
+
+                </div>    
+                <button class='btn' ng-click='workouts.refreshData()'>refresh</button>
+
+                <button class='btn' ng-click='workouts.switchView()' >Switch to Measurements View</button>
+                
+            </div>
+        <div ng-show='workouts.measurementView'>
+            
+            <ul>
+
+                <li ng-repeat="measurement in workouts.measurementsRecords">{{ measurement.date }} - {{ measurement.arms }}</li>
+
+            </ul>    
+                        <button class='btn' ng-click='workouts.refreshData()'>refresh</button>
+
+            <button class='btn' ng-click='workouts.switchView()'>Switch to Workouts View</button>
+
+        </div>
+            
+        </div>
+    </div>        
+        
+    </ul>
+</div>

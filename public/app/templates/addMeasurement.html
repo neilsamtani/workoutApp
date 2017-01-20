@@ -1,0 +1,38 @@
+
+
+<h3>Add Measurement</h3>
+
+<form name='newMeasurement'>
+   
+
+    <h4>Measurement Date:</h4>
+    <div style="display:inline-block; min-height:290px;">
+      <div uib-datepicker ng-model="measurementAdder.newMeasurement.measurementDate" id="measurementDate" class="well well-sm" datepicker-options="options"></div>
+    </div>
+
+    <table><tr><td>
+    <h4>Arms (cm): </h4>
+    <input type="number" id='measurementArms' ng-model='measurementAdder.newMeasurement.measurementArms' /> <br/>
+        </td><td>
+    <h4>Chest (cm): </h4>
+    <input type="number" id='measurementChest' ng-model='measurementAdder.newMeasurement.measurementChest' /> <br/>
+    </td></tr>
+        <tr><td>
+    <h4>Waist (cm): </h4>
+    <input type="number" id='measurementWaist' ng-model='measurementAdder.newMeasurement.measurementWaist' /> <br/>
+            </td>
+            <td>
+    <h4>Legs (cm): </h4>
+    <input type="number" id='measurementLegs' ng-model='measurementAdder.newMeasurement.measurementLegs' /> <br/>
+    </td></tr>
+        <tr><td>
+    <h4>Weight (cm): </h4>
+    <input type="number" id='measurementWeight' ng-model='measurementAdder.newMeasurement.measurementWeight' /> <br/>
+    </td></tr>
+    </table>    
+    <hr />
+    
+    <br/>
+    <button ng-click='measurementAdder.saveMeasurement()' class="btn btn-default">Save</button>
+
+</form>
